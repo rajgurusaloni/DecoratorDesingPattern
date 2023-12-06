@@ -46,5 +46,16 @@ namespace DecoratorPatternTest
             Assert.AreEqual(vehicle.GetDescription(), "Petrol engine is 1199 cc");
             Assert.AreEqual(vehicleDecorator.GetPrice(), 211000);
         }
+
+
+        [TestMethod]
+        public void GetTotalPrice_Amaze_MultipleDecorator_Test2()
+        {
+            IVehicle vehicle = new Amaze();
+            VehicleDecorator vehicleDecorator = new SeatCover(vehicle);
+            vehicleDecorator = new Spoiler(vehicleDecorator);
+            Assert.AreEqual(vehicle.GetDescription(), "Petrol engine is 1199 cc");
+            Assert.AreEqual(vehicleDecorator.GetPrice(), 211000);
+        }
     }
 }
